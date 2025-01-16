@@ -3,7 +3,12 @@ import java.util.*;
 import java.util.stream.*;
 public class Duplicate {
 
+
+
+
         public static void main(String[] args) {
+
+
             List<String> words = Arrays.asList("one", "two", "three", "two", "four", "five", "three", "one");
 
             // Use a Set to find duplicates
@@ -19,11 +24,16 @@ public class Duplicate {
             System.out.println("Distinct Elements: " + words.stream().distinct().toList());
 
 
+
+            // 2
+
             List<String> words2 = Arrays.asList("one", "two", "three", "two", "four", "five", "three", "one");
 
             // Count occurrences of each element
             Map<String, Long> wordCounts = words2.stream()
                     .collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+
+            System.out.println(wordCounts);
 
             // Filter elements with count > 1
             List<String> duplicates2 = wordCounts.entrySet().stream()
@@ -33,5 +43,26 @@ public class Duplicate {
 
             System.out.println("Duplicate Elements: " + duplicates2);
             System.out.println("Element Counts: " + wordCounts);
+
+
+
+        //3
+
+    String s ="chaitrak81@gmail.com";
+            System.out.println(removeDuplicateInString(s));
+}
+public static String removeDuplicateInString(String s) {
+    String sh = " ";
+    for (char c : s.toCharArray()) {
+//            if(Character.isAlphabetic(c)){
+//                sh +=c;
+//            }
+        if (!sh.contains(String.valueOf(c))) {
+            sh += c;
         }
+    }
+    return sh;
+}
+
+
     }
